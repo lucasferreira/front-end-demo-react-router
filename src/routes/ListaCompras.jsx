@@ -1,11 +1,9 @@
 import { useState } from "react";
 
-function generateId() {
-  return Math.random().toString(36).substr(2, 9);
-}
+import { useListaCompras, generateId } from "../context/ListaComprasContext";
 
 export default function ListaCompras() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useListaCompras();
   const [errorMessage, setErrorMessage] = useState("");
 
   function addItem(event) {

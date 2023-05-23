@@ -1,5 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import { ListaComprasProvider } from "./context/ListaComprasContext";
+
 import RootLayout from "./layouts/RootLayout";
 import Home from "./routes/Home";
 import ListaCompras from "./routes/ListaCompras";
@@ -22,5 +24,9 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <ListaComprasProvider>
+      <RouterProvider router={router} />
+    </ListaComprasProvider>
+  );
 }
