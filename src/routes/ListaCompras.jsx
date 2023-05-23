@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import { useListaCompras, generateId } from "../context/ListaComprasContext";
+import { generateId } from "../context/ListaComprasContext";
 
 export default function ListaCompras() {
-  const [items, setItems] = useListaCompras();
+  const [items, setItems] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
 
   function addItem(event) {
@@ -36,7 +36,7 @@ export default function ListaCompras() {
   }
 
   return (
-    <div>
+    <div className="p-6">
       <h2 className="mb-5 text-3xl font-semibold text-gray-700">Lista de Compras</h2>
       <ul className="mx-5 my-4 list-disc">
         {items.map(item => (
